@@ -20,8 +20,8 @@ var transporter = mailer.createTransport({
 	port: 465,
     secure: true, // use SSL
     auth: {
-    	user: 'vpvalerts@gmail.com',
-    	pass: 'Alwin5000'
+    	user: 'gabstester@gmail.com',
+    	pass: 'Tester111'
     },
     tls: {
     	rejectUnauthorized: false
@@ -29,7 +29,7 @@ var transporter = mailer.createTransport({
 });
 var mailOptions = {
     from: '"www.whiskyfr.com Alert" <vpvalerts@gmail.com>', // sender address (who sends)
-    to: 'vpvalerts@gmail.com', // list of receivers (who receives)
+    to: 'gabstester@gmail.com', // list of receivers (who receives)
     subject: 'There was a change in the availability of a product.', // Subject line
 };
 

@@ -18,9 +18,9 @@ function setupScript(){
 	maltApi.getTheMasterOfMalt();
 	whiskyExchangeApi.getTheWhiskyExchange();
 	whiskyFr.setupWhiskyFr();
-	setInterval(maltApi.getTheMasterOfMalt,2500);
-	setInterval(whiskyExchangeApi.getTheWhiskyExchange,2500);
-	setInterval(whiskyFr.getWhiskyFr,2500);
+	setInterval(maltApi.getTheMasterOfMalt,300000);
+	setInterval(whiskyExchangeApi.getTheWhiskyExchange,300000);
+	setInterval(whiskyFr.getWhiskyFr,300000);
 }
 
 app.listen(8080,function(){
