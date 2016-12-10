@@ -15,7 +15,7 @@ var Converter = require('csvtojson').Converter;
 
 
 var mailOptions = {
-    from: '"www.masterofmalt.com Alert !" <gabriel.buragev96@gmail.com>', // sender address (who sends)
+    from: '"www.masterofmalt.com Alert !" <gabstester@gmail.com>', // sender address (who sends)
     to: 'gabstester@gmail.com', // list of receivers (who receives)
     subject: 'There was a change in the availability of a product.', // Subject line
 };

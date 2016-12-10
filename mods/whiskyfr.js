@@ -28,7 +28,7 @@ var transporter = mailer.createTransport({
     }
 });
 var mailOptions = {
-    from: '"www.whiskyfr.com Alert" <vpvalerts@gmail.com>', // sender address (who sends)
+    from: '"www.whiskyfr.com Alert" <gabstester@gmail.com>', // sender address (who sends)
     to: 'gabstester@gmail.com', // list of receivers (who receives)
     subject: 'There was a change in the availability of a product.', // Subject line
 };
