@@ -15,8 +15,8 @@ var Converter = require('csvtojson').Converter;
 
 
 var mailOptions = {
-    from: '"www.masterofmalt.com Alert !" <gabstester@gmail.com>', // sender address (who sends)
-    to: 'gabstester@gmail.com', // list of receivers (who receives)
+    from: '"www.masterofmalt.com Alert !" <vpvalerts@gmail.com>', // sender address (who sends)
+    to: 'vpvalerts@gmail.com', // list of receivers (who receives)
     subject: 'There was a change in the availability of a product.', // Subject line
 };
 
@@ -26,11 +26,11 @@ var transporter = mailer.createTransport({
 	port: 465,
     secure: true, // use SSL
     auth: {
-    	user: 'gabstester@gmail.com',
-    	pass: 'Tester111'
+    	user: 'vpvalerts@gmail.com',
+    	pass: 'Alwin5000'
     },
     tls: {
-    	rejectUnauthorized: false
+        rejectUnauthorized: false
     }
 });
 

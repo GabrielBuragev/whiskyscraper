@@ -8,8 +8,6 @@ var simpleCount = 0;
 var mailer = require('nodemailer');
 var fs = require('fs');
 var semaphore = require('semaphore')(1);
-var testTrick = [];
-var testTrickCounter= 0;
 var productState =  [];
 var productName = [];
 
@@ -20,16 +18,16 @@ var transporter = mailer.createTransport({
 	port: 465,
     secure: true, // use SSL
     auth: {
-    	user: 'gabstester@gmail.com',
-    	pass: 'Tester111'
+    	user: 'vpvalerts@gmail.com',
+    	pass: 'Alwin5000'
     },
     tls: {
-    	rejectUnauthorized: false
+        rejectUnauthorized: false
     }
 });
 var mailOptions = {
-    from: '"www.whiskyfr.com Alert" <gabstester@gmail.com>', // sender address (who sends)
-    to: 'gabstester@gmail.com', // list of receivers (who receives)
+    from: '"www.whiskyfr.com Alert" <vpvalerts@gmail.com>', // sender address (who sends)
+    to: 'vpvalerts@gmail.com', // list of receivers (who receives)
     subject: 'There was a change in the availability of a product.', // Subject line
 };
 
@@ -125,7 +123,7 @@ module.exports = {
 		// If there is a new product on the page first send a mail for the list of the new products 
 		if(newProductFlag){
 			mailOptions.html ="<b>There is a brand new delivery on the webpage go check it !<b>  <br> " + appendableProducts;
-
+			mailOptions.subject = "There is a brand new delivery on the webpage "+whiskyFr.url;
 			transporter.sendMail(mailOptions, function(error, info){
 				if(error){
 					return console.log(error);
@@ -142,6 +140,7 @@ module.exports = {
 			// If there are also new product states then send a mail for the list of updated products
 			if(stateProductFlag){
 				mailOptions.html = "<b> There is a product availability change on the webpage.<b>  The name of the products are: <br> ";
+				mailOption.subject = "There is a product availability change on the webpage "+whiskyFr.url;
 				var appendableHtml='';
 				for(var j = 0;j<appendableStatesOfProducts.length;j++){
 					appendableHtml += (j+1)+". "+appendableStatesOfProducts[j].productName+' , availability '+appendableStatesOfProducts[j].productState+' \n'; 
@@ -176,7 +175,7 @@ module.exports = {
 			}
 
 			mailOptions.html = appendableHtml;
-
+			mailOptions.subject = "There is a product availability chagnge on the webpage "+whiskyFr.url;
 			transporter.sendMail(mailOptions, function(error, info){
 				if(error){
 					return console.log(error);
