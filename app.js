@@ -24,6 +24,6 @@ function setupScript(){
 }
 
 app.listen(8080,function(){
-	console.log("Server listening on localhost:8081");
+	console.log("Server listening on localhost:8080");
 	setupScript();
 });
