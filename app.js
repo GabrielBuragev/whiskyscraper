@@ -7,6 +7,12 @@
 
 var express = require('express');
 var app = express();
+require('dotenv').config({path:'./.env.example'});
+
+//check
+console.log(process.env.PW);
+console.log(process.env.EMAIL);
+
 
 
 //Api connectors

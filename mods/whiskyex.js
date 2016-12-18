@@ -16,8 +16,8 @@ var testFlag = true;
 // Test environment mailer
 // -- change to the robmass account when you are finished
 var mailOptions = {
-    from: '"www.thewhiskyexchange.com Alert !" <vpvalerts@gmail.com>', // sender address (who sends)
-    to: 'vpvalerts@gmail.com', // list of receivers (who receives)
+    from: '"www.thewhiskyexchange.com Alert !" <'+process.env.EMAIL+'>', // sender address (who sends)
+    to: process.env.EMAIL, // list of receivers (who receives)
     subject: 'There was a change in the availability of a product.', // Subject line
 };
 
@@ -27,8 +27,8 @@ var transporter = mailer.createTransport({
 	port: 465,
     secure: true, // use SSL
     auth: {
-    	user: 'vpvalerts@gmail.com',
-    	pass: 'Alwin5000'
+    	user: process.env.EMAIL,
+    	pass: process.env.PW
     },
     tls: {
         rejectUnauthorized: false

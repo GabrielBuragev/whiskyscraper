@@ -12,22 +12,21 @@ var productState =  [];
 var productName = [];
 
 
-
 var transporter = mailer.createTransport({
 	host: 'smtp.gmail.com',
 	port: 465,
     secure: true, // use SSL
     auth: {
-    	user: 'vpvalerts@gmail.com',
-    	pass: 'Alwin5000'
+    	user: process.env.EMAIL,
+    	pass: process.env.PW
     },
     tls: {
         rejectUnauthorized: false
     }
 });
 var mailOptions = {
-    from: '"www.whiskyfr.com Alert" <vpvalerts@gmail.com>', // sender address (who sends)
-    to: 'vpvalerts@gmail.com', // list of receivers (who receives)
+    from: '"www.whiskyfr.com Alert" <'+process.env.EMAIL+'>', // sender address (who sends)
+    to: process.env.EMAIL, // list of receivers (who receives)
     subject: 'There was a change in the availability of a product.', // Subject line
 };
 
