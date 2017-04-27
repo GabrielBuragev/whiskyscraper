@@ -21,6 +21,7 @@ var whiskyFr = require('./mods/whiskyfr.js');
 
 function setupScript() {
     console.log("Setting up script");
+
     maltApi.getTheMasterOfMalt();
     whiskyExchangeApi.getTheWhiskyExchange();
     whiskyFr.setupWhiskyFr();
@@ -30,7 +31,7 @@ function setupScript() {
 }
 
 app.get('/', function(req, res) {
-    res.send('<h2>Some cool automated script running over here</h2>');
+    res.send('<h2>Some cool automated script running over here</h2>' + process.env.PW + " " + process.env.EMAIL);
 
 });
 app.listen(process.env.PORT || 5000, function() {
