@@ -9,8 +9,6 @@ var express = require('express');
 var app = express();
 
 //check
-console.log(process.env.PW);
-console.log(process.env.EMAIL);
 
 
 
