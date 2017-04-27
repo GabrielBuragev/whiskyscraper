@@ -34,7 +34,7 @@ app.get('/', function(req, res) {
     res.send('<h2>Some cool automated script running over here</h2>');
 
 });
-app.listen(8080, function() {
+app.listen(process.env.PORT || 5000, function() {
     console.log("Server listening on localhost:8080");
     setupScript();
 });
