@@ -29,7 +29,7 @@ function setupScript() {
 }
 
 app.get('/', function(req, res) {
-    res.send('<h2>Some cool automated script running over here</h2>' + process.env.PW + " " + process.env.EMAIL);
+    res.send('<h2>Some cool automated script running over here</h2>');
 
 });
 app.listen(process.env.PORT || 5000, function() {
