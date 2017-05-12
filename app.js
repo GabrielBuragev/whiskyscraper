@@ -16,7 +16,7 @@ var app = express();
 var whiskyExchangeApi = require('./mods/whiskyex.js');
 var maltApi = require('./mods/malt.js');
 var whiskyFr = require('./mods/whiskyfr.js');
-
+console.log(process.env.EMAIL+ "  "+ process.env.PW);
 function setupScript() {
     console.log("Setting up script");
 
