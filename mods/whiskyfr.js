@@ -30,8 +30,8 @@ var mailOptions = {
     subject: 'There was a change in the availability of a product.', // Subject line
 };
 
-mailOptions.html = "<b>There is a brand new delivery on the webpage go check it !<b>  <br> " + appendableProducts;
-mailOptions.subject = "There is a brand new delivery on the webpage " + whiskyFr.url;
+mailOptions.html = "<b>There is a brand new delivery on the webpage go check it !<b>  <br> ";
+mailOptions.subject = "There is a brand new delivery on the webpage ";
 transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
         return console.log(error);
