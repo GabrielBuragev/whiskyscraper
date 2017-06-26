@@ -46,7 +46,6 @@ var Mailer = function() {
 
     var self = this;
     initMailer();
-    self.sendMail('test', 'test', 'test');
 }
 
 module.exports = new Mailer();
