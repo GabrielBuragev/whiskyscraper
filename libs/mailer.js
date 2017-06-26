@@ -1,11 +1,11 @@
 var mailer = require('nodemailer');
 var logger = require('./logger');
 var Mailer = function() {
-    var EMAIL = process.env.EMAIL_PROD;
-    var PW = process.env.PW_PROD;
-    var EMAIL_DBG = process.env.EMAIL;
-
+    var EMAIL = process.env.EMAIL;
+    var PW = process.env.PW;
+    var EMAIL_DBG = process.env.EMAIL_DBG;
     var subscribedEmails = [EMAIL, EMAIL_DBG];
+
     var transporter = undefined;
 
     initMailer = function() {
@@ -46,7 +46,7 @@ var Mailer = function() {
 
     var self = this;
     initMailer();
-
+    self.sendMail('test', 'test', 'test');
 }
 
 module.exports = new Mailer();
