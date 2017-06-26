@@ -1,29 +1,28 @@
 /*
-    All rights reserved
-    Author : Gabriel Buragev - gabco96[at]hotmail.com
-	https://github.com/GabrielBuragev || https://www.facebook.com/gabriel.buragev
-*/
+ *   Author : Gabriel Buragev - gabco96[at]hotmail.com
+ */
 
 
 var express = require('express');
 var app = express();
 
-//check
+var whiskyExchange = require('./libs/whiskyex.js');
+var Malt = require('./libs/malt.js');
+var whiskyFr = require('./libs/whiskyfr.js');
+var LionsWhisky = require('./libs/lionswhisky');
+var NickollSandPerks = require('./libs/nickollsandperks');
+var VinMonopolet = require('./libs/vinmonopolet');
+var RoyalMileWhiskies = require("./libs/royalmilewhiskies");
+var WhiskyDe = require('./libs/whisky.de');
 
-
-
-//Api connectors
-var whiskyExchangeApi = require('./mods/whiskyex.js');
-var maltApi = require('./mods/malt.js');
-var whiskyFr = require('./mods/whiskyfr.js');
 function setupScript() {
     console.log("Setting up script");
 
-    maltApi.getTheMasterOfMalt();
-    whiskyExchangeApi.getTheWhiskyExchange();
+    Malt.getTheMasterOfMalt();
+    whiskyExchange.getTheWhiskyExchange();
     whiskyFr.setupWhiskyFr();
-    setInterval(maltApi.getTheMasterOfMalt, 300000);
-    setInterval(whiskyExchangeApi.getTheWhiskyExchange, 300000);
+    setInterval(Malt.getTheMasterOfMalt, 300000);
+    setInterval(whiskyExchange.getTheWhiskyExchange, 300000);
     setInterval(whiskyFr.getWhiskyFr, 300000);
 }
 
