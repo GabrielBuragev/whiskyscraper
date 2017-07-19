@@ -15,7 +15,7 @@
     "author": "Gabs",
     "license": "ISC",
     "engines": {
-        "node": "4.6.0"
+        "node": "6.11.1"
     },
     "dependencies": {
         "cheerio": "^0.22.0",
