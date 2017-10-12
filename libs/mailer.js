@@ -44,6 +44,25 @@ var Mailer = function() {
 
     }
 
+    this.testMailFunction = function(){
+        var mailOptions = {
+            from: '"me - test" <' + EMAIL + '>', // sender address (who sends)
+            subject: "test", // Subject line
+            html: "test"
+        };
+        for (var i = 0; i < subscribedEmails.length; i++) {
+            mailOptions.to = subscribedEmails[i];
+
+            transporter.sendMail(mailOptions, function(error, info) {
+                if (error) {
+                    return logger.ERR(error);
+                }
+
+                logger.OK('Message sent successfully: ' + info.response);
+
+            });
+        }
+    }
     var self = this;
     initMailer();
 }
