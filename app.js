@@ -25,11 +25,10 @@ function setupScript() {
     setInterval(whiskyExchange.getTheWhiskyExchange, 300000);
     setInterval(whiskyFr.getWhiskyFr, 300000);
 }
-function testMailer (){
-    var mailer = require('./libs/mailer.js');
-    mailer.testMailFunction();
-}
-
+function testMailer (){
+    var mailer = require('./libs/mailer.js');
+    mailer.testMailFunction();
+}
 testMailer();
 
 app.get('/', function(req, res) {
