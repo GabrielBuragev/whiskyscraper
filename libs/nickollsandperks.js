@@ -16,9 +16,12 @@ var NickollSandperks = function() {
                         return err;
                     } else if (body) {
                         Products = getProductRows(body);
-                        setInterval(self.checkChanges, 300000);
-                        logger.OK("NickollSandPerks scrape initialized successfully");
-
+                        if (Products.length > 0) {
+                            setInterval(self.checkChanges, 300000);
+                            logger.OK("NickollSandPerks scrape initialized successfully");
+                        } else {
+                            logger.WARN("NickollSandPerks scrape failed to initialize, probably due to design changes !");
+                        }
                     }
                 });
 

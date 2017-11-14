@@ -20,8 +20,12 @@ var LionsWhisky = function() {
                     return err;
                 } else if (body) {
                     Products = getProductRows(body);
-                    setInterval(self.checkChanges, 300000);
-                    logger.OK('LionsWhisky scrape initialized successfully');
+                    if (Products.length > 0) {
+                        setInterval(self.checkChanges, 300000);
+                        logger.OK('LionsWhisky scrape initialized successfully');
+                    } else {
+                        logger.WARN("LionsWhisky scrape failed to initialize, probably due to design changes !");
+                    }
                 }
             });
 

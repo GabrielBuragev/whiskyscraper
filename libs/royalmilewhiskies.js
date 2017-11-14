@@ -16,8 +16,12 @@ var RoyalMileWhiskies = function() {
                     return err;
                 } else if (body) {
                     Products = getProductRows(body);
-                    setInterval(checkChanges, 300000);
-                    logger.OK("RoyalMileWhiskies scrape initialized successfully");
+                    if (Products.length > 0) {
+                        setInterval(checkChanges, 300000);
+                        logger.OK("RoyalMileWhiskies scrape initialized successfully");
+                    } else {
+                        logger.WARN('RoyalMileWhiskies scrape failed to initialize, probably due to design changes of the page !');
+                    }
                 }
             });
     }
@@ -35,6 +39,7 @@ var RoyalMileWhiskies = function() {
             product.vat_label = $(this).find("div.product-info div.vatAndPrice span.vat-label").text();
             tmpProducts.push(product);
         });
+
         return tmpProducts;
     }
 

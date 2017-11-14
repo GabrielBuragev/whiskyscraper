@@ -18,7 +18,7 @@ var Vinmonopolet = function() {
                     } else if (body) {
                         Products = getProductRows(body);
                         if (Products.length < 1) {
-                            setInterval(self.checkChanges, 300000);
+                            // setInterval(self.checkChanges, 300000);
                             logger.WARN("Vinmonopolet scrape started with 0 products ! -- initScript Products.length");
                         } else {
                             setInterval(self.checkChanges, 300000);

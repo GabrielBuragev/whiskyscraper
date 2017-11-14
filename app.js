@@ -6,9 +6,9 @@
 var express = require('express');
 var app = express();
 
-var whiskyExchange = require('./libs/whiskyex.js');
-var Malt = require('./libs/malt.js');
-var whiskyFr = require('./libs/whiskyfr.js');
+// var whiskyExchange = require('./libs/whiskyex.js');
+// var Malt = require('./libs/malt.js');
+// var whiskyFr = require('./libs/whiskyfr.js');
 var LionsWhisky = require('./libs/lionswhisky');
 var NickollSandPerks = require('./libs/nickollsandperks');
 var VinMonopolet = require('./libs/vinmonopolet');
@@ -25,7 +25,8 @@ function setupScript() {
     setInterval(whiskyExchange.getTheWhiskyExchange, 300000);
     setInterval(whiskyFr.getWhiskyFr, 300000);
 }
-function testMailer (){
+
+function testMailer() {
     var mailer = require('./libs/mailer.js');
     mailer.testMailFunction();
 }
@@ -35,7 +36,7 @@ app.get('/', function(req, res) {
     res.send('<h2>Some cool automated script running over here</h2>');
 
 });
-app.listen(process.env.PORT || 5000, function() {
-    console.log("Server listening on localhost:8080");
-    setupScript();
+var server = app.listen(process.env.PORT || 5000, function() {
+    console.log("Server listening on localhost:" + server.address().port);
+    // setupScript();
 });

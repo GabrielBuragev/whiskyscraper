@@ -53,6 +53,7 @@ module.exports = {
             for (var J = 0; J < presentProductStates.length; J++) {
                 productState[J] = $(presentProductStates[J]).html().trim();
             }
+            console.log("Whiskyfr : " + productName);
             console.log("Setup completed for " + whiskyFr.url + "\nWill be sending requests every 5 minute and check for webpage content changes -- " + whiskyFr.url);
         });
     },
