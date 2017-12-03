@@ -6,9 +6,9 @@
 var express = require('express');
 var app = express();
 
-// var whiskyExchange = require('./libs/whiskyex.js');
-// var Malt = require('./libs/malt.js');
-// var whiskyFr = require('./libs/whiskyfr.js');
+var whiskyExchange = require('./libs/whiskyex.js');
+var Malt = require('./libs/malt.js');
+var whiskyFr = require('./libs/whiskyfr.js');
 var LionsWhisky = require('./libs/lionswhisky');
 var NickollSandPerks = require('./libs/nickollsandperks');
 var VinMonopolet = require('./libs/vinmonopolet');
@@ -38,5 +38,5 @@ app.get('/', function(req, res) {
 });
 var server = app.listen(process.env.PORT || 5000, function() {
     console.log("Server listening on localhost:" + server.address().port);
-    // setupScript();
+    setupScript();
 });

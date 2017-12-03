@@ -1,8 +1,8 @@
 var mailer = require('nodemailer');
 var logger = require('./logger');
 var Mailer = function() {
-    var EMAIL = process.env.EMAIL;
-    var PW = process.env.PW;
+    var EMAIL = process.env.EMAIL_ETHEREAL;
+    var PW = process.env.PW_ETHEREAL;
     var EMAIL_DBG = process.env.EMAIL_DBG;
     var subscribedEmails = [EMAIL, EMAIL_DBG];
 
@@ -10,9 +10,9 @@ var Mailer = function() {
 
     initMailer = function() {
         transporter = mailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true, // use SSL
+            host: 'smtp.ethereal.email',
+            port: 587,
+            secure: false, // use SSL
             auth: {
                 user: EMAIL,
                 pass: PW
@@ -44,7 +44,7 @@ var Mailer = function() {
 
     }
 
-    this.testMailFunction = function(){
+    this.testMailFunction = function() {
         var mailOptions = {
             from: '"me - test" <' + EMAIL + '>', // sender address (who sends)
             subject: "test", // Subject line
