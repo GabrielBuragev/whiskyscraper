@@ -3,7 +3,7 @@ var app = express();
 var request = require('request');
 // var requestify = require('requestify');
 var cheerio = require('cheerio');
-var mailer = require('nodemailer');
+var mailer = require('./mailer');
 var fs = require('fs');
 var diff = require('deep-diff').diff;
 var maltSemaphore = require('semaphore')(1);
@@ -12,34 +12,6 @@ var MAXLIMIT = 50;
 var concurrent = require('semaphore')(1);
 var Converter = require('csvtojson').Converter;
 
-
-var mailOptions = {
-    from: '"www.masterofmalt.com Alert !" <' + process.env.EMAIL + '>', // sender address (who sends)
-    to: process.env.EMAIL, // list of receivers (who receives)
-    subject: 'There was a change in the availability of a product.', // Subject line
-};
-
-
-var transporter = mailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true, // use SSL
-    auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PW
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-});
-
-// var url = [
-// "https://www.masterofmalt.com/new-arrivals/",
-// "https://www.masterofmalt.com/new-arrivals/2/",
-// "https://www.masterofmalt.com/new-arrivals/3/",
-// "https://www.masterofmalt.com/new-arrivals/4/",
-// "https://www.masterofmalt.com/new-arrivals/5/"
-// ];
 //MasterOfMalt website  config 
 Date.prototype.getMonthFormatted = function() {
     var month = this.getMonth() + 1;
@@ -133,7 +105,6 @@ module.exports = {
                 });
                 if (flag) {
                     flag = false;
-                    console.log("Masterofmalt : " + masterOfMaltContent[counter].products.length);
                     console.log("Setup completed for " + masterOfMalt.url + "\nWill be sending requests every 5 minutes and check for content changes on " + masterOfMalt.url);
                 } else {
                     newContent[0]['products'][0].inStock = false;
@@ -171,28 +142,12 @@ module.exports = {
                         }
                     }
                     if (newProductsFlag) {
-                        mailOptions.subject = "There are new products on " + masterOfMalt.url;
-                        mailOptions.html = newProductsText;
-                        transporter.sendMail(mailOptions, function(error, info) {
-                            if (error) {
-                                return console.log(error);
-                            }
-
-                            console.log('Message sent successfully: ' + info.response);
-
-                        });
+                        var subject = "There are new products on " + masterOfMalt.url;
+                        mailer.sendMail(masterOfMalt.url, "There are new products on " + subject, newProductsText);
                     }
                     if (availabilityFlag) {
-                        mailOptions.subject = "There was a product availability change on " + masterOfMalt.url;
-                        mailOptions.html = availabilityProductsText;
-                        transporter.sendMail(mailOptions, function(error, info) {
-                            if (error) {
-                                return console.log(error);
-                            }
-
-                            console.log('Message sent successfully: ' + info.response);
-
-                        });
+                        var subject = "There was a product availability change on " + masterOfMalt.url;
+                        mailer.sendMail(masterOfMalt.url, subject, availabilityProductsText);
                     }
                     if (!newProductsFlag && !availabilityFlag) {
                         console.log('There were no changes in the content of the webpage ' + masterOfMalt.url);

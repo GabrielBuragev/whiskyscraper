@@ -16,9 +16,6 @@ var Mailer = function() {
             auth: {
                 user: EMAIL,
                 pass: PW
-            },
-            tls: {
-                rejectUnauthorized: false
             }
         });
     }
