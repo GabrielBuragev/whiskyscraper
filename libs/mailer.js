@@ -1,18 +1,16 @@
 var mailer = require('nodemailer');
 var logger = require('./logger');
 var Mailer = function() {
-    var EMAIL = process.env.EMAIL_ETHEREAL;
-    var PW = process.env.PW_ETHEREAL;
+    var EMAIL = process.env.EMAIL_PROD;
+    var PW = process.env.PW_PROD;
     var EMAIL_DBG = process.env.EMAIL_DBG;
     var subscribedEmails = [EMAIL, EMAIL_DBG];
-
+    var EMAIL_PROVIDER = process.env.EMAIL_PROVIDER;
     var transporter = undefined;
 
     initMailer = function() {
         transporter = mailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false, // use SSL
+            service: EMAIL_PROVIDER,
             auth: {
                 user: EMAIL,
                 pass: PW
