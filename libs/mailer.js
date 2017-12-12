@@ -43,7 +43,7 @@ var Mailer = function() {
         var mailOptions = {
             from: '"me - test" <' + EMAIL + '>', // sender address (who sends)
             subject: "test", // Subject line
-            html: "test"
+            html: "<h1 style='color:red'>test</h1>"
         };
         for (var i = 0; i < subscribedEmails.length; i++) {
             mailOptions.to = subscribedEmails[i];
