@@ -4,6 +4,7 @@
 
 
 var express = require('express');
+var https = require('https');
 var app = express();
 
 var whiskyExchange = require('./libs/whiskyex.js');
@@ -31,6 +32,27 @@ function testMailer() {
     mailer.testMailFunction();
 }
 testMailer();
+
+
+//Loopback request to prevent app sleeping !
+var doLbRequest = function() {
+    https.get('https://whiskyscraper.herokuapp.com/', function(res) {
+        var rawData = '';
+        res.on('data', (chunk) => { rawData += chunk; });
+        res.on('end', () => {
+            try {
+                console.log("RESPONE FROM LOOPBACK REQUEST : " + rawData);
+            } catch (e) {
+                console.error(e.message);
+            }
+        });
+    });
+}
+setInterval(function() {
+    doLbRequest();
+}, 300000); // every 5 minutes (300000)
+doLbRequest();
+//  -   -   -   -
 
 app.get('/', function(req, res) {
     res.send('<h2>Some cool automated script running over here</h2>');
