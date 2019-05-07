@@ -2,7 +2,7 @@
  *   Author : Gabriel Buragev - gabco96[at]hotmail.com
  */
 
-
+require('dotenv').config();
 var express = require('express');
 var https = require('https');
 var app = express();
@@ -13,6 +13,7 @@ var whiskyFr = require('./libs/whiskyfr.js');
 var LionsWhisky = require('./libs/lionswhisky');
 var NickollSandPerks = require('./libs/nickollsandperks');
 var VinMonopolet = require('./libs/vinmonopolet');
+var oldWhisky = require('./libs/oldWhisky/scraper');
 var RoyalMileWhiskies = require("./libs/royalmilewhiskies");
 var WhiskyDe = require('./libs/whisky.de');
 
