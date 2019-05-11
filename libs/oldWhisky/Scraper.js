@@ -2,7 +2,7 @@ var rq = require('request-promise');
 var cheerio = require('cheerio');
 var Product = require('./Product');
 var mailer = require("../mailer");
-var logger = require("../logger");
+var logger = require("../logger")('OldWhisky');
 var Datastore = require('nedb');
 var db = new Datastore({ filename: 'db/oldwhiskyProducts.db', autoload: true });
 

@@ -1,6 +1,6 @@
 var rq = require('request');
 var cheerio = require('cheerio');
-var logger = require("./logger");
+var logger = require("./logger")('WhiskyDE');
 var mailer = require("./mailer");
 
 var WhiskyDe = function() {

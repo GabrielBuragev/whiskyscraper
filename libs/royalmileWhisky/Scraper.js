@@ -1,7 +1,7 @@
 var cheerio = require('cheerio');
 var rq = require('request-promise');
 var mailer = require("../mailer");
-var logger = require("../logger");
+var logger = require("../logger")('RoyalmileWhisky');
 var Product = require('./Product');
 var Datastore = require('nedb');
 var db = new Datastore({ filename: 'db/royalmileWhisky.db', autoload: true });

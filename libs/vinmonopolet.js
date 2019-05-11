@@ -1,7 +1,7 @@
 var cheerio = require("cheerio");
 var rq = require('request');
 var mailer = require('./mailer');
-var logger = require("./logger");
+var logger = require("./logger")('Vinmonopolet');
 
 var Vinmonopolet = function() {
     this.url = "https://www.vinmonopolet.no/search?q=%3Arelevance%3AvisibleInSearch%3Atrue%3ANewProducts%3Atrue%3AmainCategory%3Abrennevin%3AmainSubCategory%3Abrennevin_whisky&searchType=product";

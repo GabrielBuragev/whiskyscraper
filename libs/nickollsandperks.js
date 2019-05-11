@@ -1,7 +1,7 @@
 var rq = require('request');
 var mailer = require("./mailer");
 var cheerio = require('cheerio');
-var logger = require('./logger');
+var logger = require('./logger')('Nickollsandperks');
 var NickollSandperks = function() {
     this.url = "https://www.nickollsandperks.co.uk/browse.asp?category=243&flt_style=13974&pagesize=50";
     this.baseUrl = "https://www.nickollsandperks.co.uk";
