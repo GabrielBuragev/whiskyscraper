@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const secret = 'reallyoldwhisky';
+const secret = 'lionwhisky';
 class Product {
 
     constructor(params) {
@@ -31,7 +31,7 @@ class Product {
         }
     }
     getUniqueHash() {
-        return crypto.createHmac('sha256', secret).update(`${this.dateAdded}${this.name}`).digest('hex');
+        return crypto.createHmac('sha256', secret).update(`${this.name}`).digest('hex');
     }
 
     equals(product2) {
@@ -48,9 +48,6 @@ class Product {
         // Store available current to available before for printing
         this.availableBefore = this.available;
         this.available = product2.available;
-
-        this.additionalInformation.volume = product2.additionalInformation.volume;
-        this.additionalInformation.gradient = product2.additionalInformation.gradient;
 
         return true;
     }

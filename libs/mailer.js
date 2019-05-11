@@ -4,7 +4,7 @@ var Mailer = function() {
     var EMAIL = process.env.EMAIL_PROD;
     var PW = process.env.PW_PROD;
     var EMAIL_DBG = process.env.EMAIL_DBG;
-    var subscribedEmails = [EMAIL, EMAIL_DBG];
+    var subscribedEmails = (process.env.DBG) ? ([EMAIL_DBG]) : [EMAIL, EMAIL_DBG];
     var EMAIL_PROVIDER = process.env.EMAIL_PROVIDER;
     var transporter = undefined;
 
