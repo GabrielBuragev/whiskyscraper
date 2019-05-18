@@ -12,6 +12,7 @@ var Malt = require('./libs/malt.js');
 var whiskyFr = require('./libs/whiskyfr.js');
 var LionsWhisky = require('./libs/lionsWhisky/Scraper');
 var NickollSandPerks = require('./libs/nickollsandperks');
+// TODO: Heal this script
 var VinMonopolet = require('./libs/vinmonopolet');
 var oldWhisky = require('./libs/oldWhisky/Scraper');
 
