@@ -2,6 +2,7 @@
  *   Author : Gabriel Buragev - gabco96[at]hotmail.com
  */
 
+if (process.env.DEV != 0) require("dotenv").config();
 var express = require("express");
 var https = require("https");
 var app = express();
