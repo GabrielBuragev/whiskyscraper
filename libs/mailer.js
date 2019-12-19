@@ -21,7 +21,7 @@ var Mailer = function() {
 
   this.sendMail = function(from, subject, text) {
     var mailOptions = {
-      from: '"' + from + '" <' + EMAIL_PROD + ">", // sender address (who sends)
+      from: '"' + from + '" <' + EMAIL_DBG + ">", // sender address (who sends)
       subject: subject, // Subject line
       html: text
     };
@@ -40,7 +40,7 @@ var Mailer = function() {
 
   this.testMailFunction = function() {
     var mailOptions = {
-      from: '"me - test" <' + EMAIL_PROD + ">", // sender address (who sends)
+      from: '"me - test" <' + EMAIL_DBG + ">", // sender address (who sends)
       subject: "test", // Subject line
       html: "<h1 style='color:red'>test</h1>"
     };
